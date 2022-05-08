@@ -1,0 +1,93 @@
+
+h1{
+    text-align: center;
+}
+#registra, #btnRecuperaContra {
+    text-decoration: none;
+    color: white;
+}
+
+#registra:link,
+#registra:visited {
+    display: inline-block;
+    text-align: center;
+    margin-top: 0.4%;
+    margin-bottom: 1%;
+    padding: 5px 20px;
+    background-color: #5071AB;
+    border-radius: 30px;
+    height: 35px;
+}
+
+#btnRecuperaContra {
+    display: inline-block;
+    text-align: center;
+    margin-top: 0.5%;
+    margin-bottom: 1.5%;
+    padding: 5px 20px;
+    color: #6281B5;
+}
+
+#btnInicia {
+    color: white;
+    background-color: #223049;
+    border-radius: 30px;
+    width: 30%;
+    font-size: 100%;
+    padding: 5px 20px;
+    margin-top: 0.4%;
+}
+input[type=text],  input[type=password]{
+    display: inline-block;
+    margin: 8px 0;
+    width: 60%;
+    text-align: center;   
+    margin-top: 5%;
+}
+hr{
+    margin-right: 40%;
+}
+legend{
+    margin-top: 5%;
+    margin-left: 15%;
+}
+fieldset{
+    border-radius: 50px 10px;
+    margin-left: 25%;
+    margin-right: 24%;
+}
+.sect1{
+    margin-left: 25%;
+}
+.sect2{
+    margin-top: 5%;
+    margin-left: 25%;
+}
+@media screen and (min-width: 480px) and (max-width: 649px){
+    #btnInicia{
+        padding-left: 2.5%;
+        width: 32%;
+    }
+    fieldset{
+        margin-left: 10%;
+        margin-right: 5%;
+    }
+    #registra{
+        margin-left: 2.5%;
+    }
+}
+@media screen and (min-width: 650px) and (max-width: 760px) {
+    fieldset{
+        margin-left: 15%;
+        margin-right: 10%;
+    }
+    #btnInicia{
+        padding-left: 2.5%;
+    }
+}
+@media screen and (min-width: 761px) {
+    fieldset{
+        margin-left: 15%;
+        margin-right: 10%;
+    }
+}

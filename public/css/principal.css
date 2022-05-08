@@ -1,0 +1,16 @@
+* {
+    margin: 0l;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    padding-top: 5%;
+    color: white;
+    background-color: black;
+}
+
+nav{
+    margin-top: -5%;
+}

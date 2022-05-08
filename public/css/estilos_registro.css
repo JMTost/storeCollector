@@ -1,0 +1,84 @@
+*{
+    margin: 0l;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    padding-top: 5%;
+    color: white;
+    background-color: black;
+}
+
+h1{
+    text-align: center;
+}
+/*
+#cuadro{
+    border-radius: 50px 10px;
+    background: #375b9c;
+    width: 50%;
+    margin-left: 20%;
+    margin-right: 13%;
+}
+*/
+
+.field{
+    padding-left: 15%;
+    border-radius: 50px 10px;
+    margin-left: 20%;
+    margin-right: 25%;
+}
+section{
+    padding-top: 1.5%;
+}
+input[type=text], input[type=email], input[type=password]{
+    display: inline-block;
+    margin: 8px 0;
+    width: 45%;
+    text-align: center;   
+}
+#btnRegistro{
+    margin-left: 5%;
+    font-size: 15px;
+    background-color:#223049;
+    width: 20%;
+    height: 30%;
+    color: white;
+    border-radius: 30px;
+}
+#btnCancela{
+    text-decoration: none;
+    margin-left: 5%;
+    background-color: #980028;
+    color: white;
+    border-radius: 30px;
+    width: 30%;
+    font-size: 100%;
+    padding: 5px 20px;
+    margin-top: 0.4%;
+
+}
+@media screen and (min-width: 480px) and (max-width: 649px){
+    .field{
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 95%;
+    }
+}
+@media screen and (min-width: 650px) and (max-width: 760px) {
+    .field{
+        margin-left: 10%;
+        width: 80%;
+    }
+    input[type=text], input[type=email], input[type=password]{
+        width: 60%;  
+    }
+}
+@media screen and (min-width: 761px) {
+    .field{
+        margin-left: 15%;
+        margin-right: 10%;
+    }
+}

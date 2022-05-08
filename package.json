@@ -1,0 +1,18 @@
+{
+  "name": "storecollector",
+  "version": "1.0.0",
+  "description": "Proyecto de moviles 3CM14 storeCollector",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
+}
