@@ -20,7 +20,7 @@ router.post('/creaUser', async (req, res) => {
 router.post('/loginUser', async (req, res) => {
     try {
         result = await db.loginUser(req.body);
-        res.status(200).send("1");
+        res.status(200).send(result[0]);
     } catch (error) {
         res.send("0");
     }

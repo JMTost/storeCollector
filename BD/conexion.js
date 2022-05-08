@@ -49,14 +49,15 @@ driver.insertUser = ({nombre_usuario, correo, nickname, password})=>{
 }
 driver.loginUser = async({user, password})=>{
     return new Promise((resolve, reject)=>{
-        connection.query("SELECT COUNT(*) as registro FROM usuario WHERE nickname=? AND password =?", [user, password], (err, result)=>{
+        connection.query("SELECT COUNT(*) as registro, id_usuario FROM usuario WHERE nickname=? AND password =?", [user, password], (err, result)=>{
             if(err){
                 console.log("error: "+err);
                 return reject(err); 
             }else{
                 if(result[0].registro>0){
                     //encontramos el usuario
-                    return resolve("Usuario encontrado");
+                    console.log(result)
+                    return resolve(result);
                 }else{
                     return reject({status:404});
                 }
@@ -65,16 +66,25 @@ driver.loginUser = async({user, password})=>{
     });
 }
 //METODOS PARA LOS ARTICULOS
-driver.creaArticulo = async({id_objeto, nombre_objeto, estado, desc, precio, idUser, idCat})=>{
+driver.creaArticulo = async({nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria})=>{
     return new Promise((resolve, reject)=>{
-        console.log("INFO FORMATEADA: "+id_objeto, nombre_objeto, estado, desc, precio, idUser, idCat);
-        const data = {id_objeto, nombre_objeto, estado, desc, precio, idUser, idCat};
-        connection.query("INSERT INTO objeto SET ?", {id_objeto, nombre_objeto, estado, desc, precio, idUser, idCat}, (err, result)=>{
-            if(err){
-                console.log(err);
-                return reject({status:500});
-            }else return resolve({status:"success", data:data});
-        });
+        connection.query(`SELECT COUNT(*) as dato FROM objeto`, (error, resultado)=>{
+            if(error){
+                console.log(error);
+                return reject(error);
+            }else{
+                //obtenemos el total de registros y apartir de este le sumamos uno
+                id_objeto = resultado[0].dato + 1;
+                console.log("INFO FORMATEADA: "+id_objeto, nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria);
+                const data = {id_objeto, nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria};
+                connection.query("INSERT INTO objeto SET ?", {id_objeto, nombre_objeto, descripcion, estado, precio, contacto, id_usuario, id_categoria}, (err, result)=>{
+                    if(err){
+                        console.log(err);
+                        return reject({status:500});
+                    }else return resolve({status:"success", data:data});
+                });
+            }
+        })
     });
 }
 driver.eliminarArticulo = async({id_objeto})=>{

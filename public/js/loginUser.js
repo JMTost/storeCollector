@@ -1,6 +1,6 @@
 const form = document.getElementById("formLogin");
 form.addEventListener("submit", function(event){
-    console.log("HOAL")
+    console.log("HOLA")
     event.preventDefault();
 
     let nickame = document.getElementById("nickname").value;
@@ -21,10 +21,17 @@ function envioBack(data){
         body: JSON.stringify(data)
     }).then(response=>response.json())
     .then(json=>{
-        i = JSON.parse(json);
+        console.log(json);
+        i = JSON.parse(json.registro);
+        //console.log(json);
         if(i==1){
             alert("Bienvenido");
-            window.location.href = "../index.html";
+            //console.log(json);
+            sessionStorage.setItem('id_usuario', json.id_usuario)
+            let id = sessionStorage.getItem('id_usuario');
+            console.log("valor de: "+id);
+                                    //aqui ira la ruta del index usuario
+            window.location.href = "./creaArticulo.html";
         }else{
             alert("Error, datos no encontrados");
         }
