@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `storecollector` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `storecollector`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: storecollector
@@ -64,7 +66,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (1,'comic','Historia animada de personajes fictisios, principalmente superheroes'),(2,'Juguetes','Juguetes de diferentes tematicas');
+INSERT INTO `categoria` VALUES (1,'comic','Historia animada de personajes ficticios, principalmente superheroes'),(2,'Juguetes','Juguetes de diferentes tematicas');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +100,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
-INSERT INTO `objeto` VALUES (1,'Pretty Violent #1','Comic Pretty Violent #1 firmado por Ryan Ottley',10,250,NULL,1,1);
+INSERT INTO `objeto` VALUES (1,'Pretty Violent #1','Comic Pretty Violent #1 firmado por Ryan Ottley',10,250,NULL,1,1),(2,'Spider-Man 2099: Exodus Alpha #1','Comic del Hombre araña 2099, del año 2022\nDe Steve',10,1100,'correo electronico: qwerty@hotmail.com\nInstagram: @comics_chima',2,1),(3,'Grogu-the mandalorian','Figura Funko pop de Grogu con una bola',10,600,'Instagram: @tienditadefunkos\ncorreo eléctronico: tienditadefunkos@gmail.com',3,2);
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,10 +163,6 @@ LOCK TABLES `venta` WRITE;
 INSERT INTO `venta` VALUES (1,'Primera Venta',1,2,1);
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'storecollector'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -175,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-07 19:10:12
+-- Dump completed on 2022-05-08  2:19:43
