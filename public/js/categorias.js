@@ -33,8 +33,8 @@ fetch('http://localhost:3000/obtenCategorias', {
     var label = document.createElement("label");
     label.innerHTML = "Selecciona una categoria: ";
     label.htmlFor = "categoria";
-    document.getElementById("prueba").appendChild(label_user);
-    document.getElementById("prueba").appendChild(inputNumber);
+    document.getElementById("idUser").appendChild(label_user);
+    document.getElementById("idUser").appendChild(inputNumber);
     document.getElementById("prueba").appendChild(label);
     document.getElementById("prueba").appendChild(select);
     

@@ -1,0 +1,56 @@
+#btnRegistro, #btnCancela{
+ text-decoration: none;   
+ color: white;
+}
+#btnCancela:link,
+#btnCancela:visited {
+    display: inline-block;
+    text-align: center;
+    margin-top: 0.4%;
+    margin-bottom: 1%;
+    padding: 2.5px 20px;
+    background-color: #5071AB;
+    border-radius: 30px;
+    height: 30px;
+}
+
+legend{
+    margin-top:2.5%;
+    margin-bottom: 2.5;
+}
+#btnRegistro{
+    background-color: #223049;
+    border-radius: 30px;
+    width: 25%;
+    height: 35%;
+}
+
+.field{
+    margin-left: 10%;
+    margin-right: 20%;
+}
+#desc{
+    margin-top: 5%;
+    width: 80%;
+}
+#estado{
+    margin-top: 5%;
+}
+#precio{
+    margin-top: 5%;
+}
+#contacto{
+    width: 70%;
+    margin-top: 5%;
+}
+input#id_usuario{
+    margin-top: 5%;
+    width: 20%;
+}
+
+#prueba{
+    margin-top: 5%;
+}
+#foto{
+    margin-bottom: 5%;
+}
