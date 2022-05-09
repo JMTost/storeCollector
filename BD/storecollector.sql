@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `storecollector` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `storecollector`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: storecollector
@@ -84,6 +82,7 @@ CREATE TABLE `objeto` (
   `estado` int NOT NULL,
   `precio` int NOT NULL,
   `contacto` varchar(250) DEFAULT NULL,
+  `nombre_imagen` varchar(100) DEFAULT NULL,
   `id_usuario` int NOT NULL,
   `id_categoria` int NOT NULL,
   PRIMARY KEY (`id_objeto`),
@@ -100,7 +99,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
-INSERT INTO `objeto` VALUES (1,'Pretty Violent #1','Comic Pretty Violent #1 firmado por Ryan Ottley',10,250,NULL,1,1),(2,'Spider-Man 2099: Exodus Alpha #1','Comic del Hombre araña 2099, del año 2022\nDe Steve',10,1100,'correo electronico: qwerty@hotmail.com\nInstagram: @comics_chima',2,1),(3,'Grogu-the mandalorian','Figura Funko pop de Grogu con una bola',10,600,'Instagram: @tienditadefunkos\ncorreo eléctronico: tienditadefunkos@gmail.com',3,2);
+INSERT INTO `objeto` VALUES (1,'Pretty Violent #1','Comic Pretty Violent #1 firmado por Ryan Ottley',10,250,NULL,NULL,1,1),(2,'Spider-Man 2099: Exodus Alpha #1','Comic del Hombre araña 2099, del año 2022\nDe Steve',10,1100,'correo electronico: qwerty@hotmail.com\nInstagram: @comics_chima',NULL,2,1),(3,'Grogu-the mandalorian','Figura Funko pop de Grogu con una bola',10,600,'Instagram: @tienditadefunkos\ncorreo eléctronico: tienditadefunkos@gmail.com',NULL,3,2),(4,'black panther ','Prueba de creacion',8,150,'telefono: 5656545654','1652056756796.jpeg',1,1);
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-08  2:19:43
+-- Dump completed on 2022-05-08 20:09:31
