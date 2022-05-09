@@ -1,21 +1,30 @@
 const form = document.getElementById("formCreaUser");
 form.addEventListener("submit", function(event){
     event.preventDefault();
-
-    let id = document.getElementById("idUser_number").value;
-    let nombre = document.getElementById("nombre_text").value;
-    let email = document.getElementById("correo").value;
-    let nickname = document.getElementById("nickname").value;
-    let pass = document.getElementById("pass").value;
-
+    
+    let nombre_objeto = document.getElementById("nombre_objeto").value;
+    let desc = document.getElementById("desc").value;
+    let estado = document.getElementById("estado").value;
+    let precio = document.getElementById("precio").value;
+    let contacto = document.getElementById("contacto").value;
+    //OBTENEMOS EL VALOR DEL ID COLOCADO
+    var categoria = document.getElementById("categorias").value;
+    //console.log(categoria);
+    //manejo de sesiones
+    let id  = sessionStorage.getItem("id_usuario");
+    //console.log("valor del id del usuario: "+id);
     const data = {
-        id : id,
-        nombre : nombre,
-        email : email,
-        nickname : nickname,
-        pass : pass
+        nombre_objeto : nombre_objeto,
+        estado : estado,
+        descripcion : desc,
+        precio : precio,
+        contacto : contacto, 
+        id_usuario : id,
+        id_categoria : categoria
     };
-    envioBack(data);
+    //console.log(imagen);
+    //console.log(data);
+    //envioBack(data);
 });
 function envioBack(data){
     console.log(data);
@@ -24,6 +33,6 @@ function envioBack(data){
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
-    }).then(response=>response.json()).then(console.log("OK"), alert("DATOS RECIBIDOS"), window.location.href="./index.html");
+    }).then(response=>response.json()).then(/*console.log("OK"), alert("DATOS RECIBIDOS"), window.location.href="./index.html"*/);
     
 }

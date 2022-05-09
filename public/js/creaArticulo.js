@@ -14,6 +14,7 @@ form.addEventListener("submit", function(event){
     //manejo de sesiones
     let id  = sessionStorage.getItem("id_usuario");
     //console.log("valor del id del usuario: "+id);
+    //subida.upload('foto');
     const data = {
         nombre_objeto : nombre_objeto,
         estado : estado,
@@ -27,7 +28,7 @@ form.addEventListener("submit", function(event){
 });
 function envioBack(data){
     console.log(data);
-    fetch('http://localhost:3000/creaArt', {
+    fetch('http://localhost:3000/files', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)

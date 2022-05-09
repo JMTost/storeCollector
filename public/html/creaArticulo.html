@@ -49,7 +49,7 @@
         </div>
     </nav>
     <!--<h1>Store Collector</h1>-->
-    <form action="" method="post" id="formArticulo">
+    <form action="/files" method="post" id="formArticulo" enctype="multipart/form-data">
         <legend>Creación de articulos</legend>
         <fieldset class="field">
             <section class="seccion1">
@@ -80,12 +80,18 @@
                 <section>
                     <!--<label for="categoria">Categoria: </label>-->
                     <!--<select name="categoria" id="categoria"></select>-->
-                    <div id="prueba">
-
+                    <div id="idUser">
                     </div>
+                    <br>
+                    <div id="prueba">
+                    </div>
+                </section>
+                <section>
+                    <abbr title="Requerido" aria-label="required">*</abbr>
                 </section>
                 <br>
                 <section>
+                    <input type="file" name="foto" id="foto" accept="image/*">
                     <input type="submit" value="Registrar" id="btnRegistro">
                     <!--BOTON DE CANCELAR, AQUI VA EL ENLACE AL INICIO DE USUARIO-->
                     <a href="../index.html" id="btnCancela">Cancelar</a>
@@ -94,7 +100,7 @@
             </section>
         </fieldset>
     </form>
-    <script src="../js/creaArticulo.js"></script>
+   <!--<script src="../js/creaArticulo.js"></script>-->
 </body>
 
 </html>

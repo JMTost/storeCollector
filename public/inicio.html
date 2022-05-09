@@ -23,25 +23,40 @@
     <main>
         <div>
             <h1>Creación de usuarios</h1>
-            <form id="formCreaUser" name="formularioCuser" method="post">
-                <label for="idUser">Ingresa el id del usuario: </label>
-                <input type="number" name="idUser" id="idUser_number" placeholder="0--100" minlength="1" maxlength="100">
-                <br>
-                <label for="nombre">Coloca el nombre del usuario: </label>
-                <input type="text" name="nombre" id="nombre_text" placeholder="Ingresa tu nombre">
-                <br>
-                <label for="correo">Coloca tu correo electrónico: </label>
-                <input type="email" name="correo" id="correo">
-                <br>
-                <label for="nickname">Coloca tu nombre de usuario: </label>
-                <input type="text" name="nickname" id="nickname">
-                <br>
-                <label for="pass">Coloca tu contraseña: </label>
-                <input type="password" name="pass" id="pass">
-                <br>
-                <input type="submit" value="guardar">
+            <form id="formCreaUser" name="formularioCuser" method="post" action="/files" enctype="multipart/form-data">
+                <section>
+                    <label for="nombre_objeto">Nombre: </label>
+                    <input type="text" name="nombre_objeto" id="nombre_objeto" placeholder="Amazing Spider-Man Vol 1 #13" required>
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <section>
+                    <textarea name="desc" id="desc" cols="50" rows="3" placeholder="Ingresa la descripción de tu articulo" required maxlength="50"></textarea>
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <section>
+                    <label for="estado">Estado del articulo: </label>
+                    <input type="number" name="estado" id="estado" required placeholder="0-10" min="0" max="10">
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <section>
+                    <label for="precio">Precio: </label>
+                    <input type="number" name="precio" id="precio" required placeholder="$99.99">
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <section>
+                    <label for="nombre_user">Nombre de usuario: </label>
+                    <input type="text" name="nombre_user" id="nombre_user" required placeholder="Tu nombre de usuario">
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <section>
+                    <label for="contacto">Contacto: </label>
+                    <textarea name="contacto" id="contacto" cols="40" rows="2" placeholder="Ingresa los medios de contacto con los que cuentas." required maxlength="250"></textarea>
+                    <abbr title="Requerido" aria-label="required">*</abbr>
+                </section>
+                <input type="file" name="foto" id="foto" accept="image/*">
+                <input type="submit" value="Enviar">
             </form>
-            <script src="./js/creacion.js" type="text/javascript"></script>
+            
         </div>
     
     </main>

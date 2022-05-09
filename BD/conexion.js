@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-
 var driver = {};
 
 const connection = mysql.createConnection({
@@ -65,8 +64,9 @@ driver.loginUser = async({user, password})=>{
         });
     });
 }
+
 //METODOS PARA LOS ARTICULOS
-driver.creaArticulo = async({nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria})=>{
+driver.creaArticulo = async({nombre_objeto, estado, descripcion, precio, contacto, nombre_imagen, id_usuario, id_categoria})=>{
     return new Promise((resolve, reject)=>{
         connection.query(`SELECT COUNT(*) as dato FROM objeto`, (error, resultado)=>{
             if(error){
@@ -75,9 +75,9 @@ driver.creaArticulo = async({nombre_objeto, estado, descripcion, precio, contact
             }else{
                 //obtenemos el total de registros y apartir de este le sumamos uno
                 id_objeto = resultado[0].dato + 1;
-                console.log("INFO FORMATEADA: "+id_objeto, nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria);
-                const data = {id_objeto, nombre_objeto, estado, descripcion, precio, contacto, id_usuario, id_categoria};
-                connection.query("INSERT INTO objeto SET ?", {id_objeto, nombre_objeto, descripcion, estado, precio, contacto, id_usuario, id_categoria}, (err, result)=>{
+                console.log("INFO FORMATEADA: "+id_objeto, nombre_objeto, estado, descripcion, precio, contacto, nombre_imagen, id_usuario, id_categoria);
+                const data = {id_objeto, nombre_objeto, estado, descripcion, precio, contacto, nombre_imagen, id_usuario, id_categoria};
+                connection.query("INSERT INTO objeto SET ?", {id_objeto, nombre_objeto, descripcion, estado, precio, contacto, nombre_imagen, id_usuario, id_categoria}, (err, result)=>{
                     if(err){
                         console.log(err);
                         return reject({status:500});
@@ -149,7 +149,7 @@ driver.agregaItemCarrito = async({idCarrito, id_usuario, id_objeto})=>{
     return new Promise((resolve, reject)=>{
         console.log("INFO FORMATEADA: "+idCarrito, id_usuario, id_objeto);
         const data = {idCarrito, id_usuario, id_objeto};
-        connection.query("INSERT INTO carrito SET ?", {idCarrito, id_usuario, id_objeto}, (err, resilt)=>{
+        connection.query("INSERT INTO carrito SET ?", {idCarrito, id_usuario, id_objeto}, (err, ressult)=>{
             if(err){
                 console.log(err);
                 return reject({status:500});
@@ -170,15 +170,4 @@ driver.eliminaItemCarrito = async({idCarrito, id_objeto})=>{
 }
 
 //METODOS PARA LA VENTA
-
-
-//METODO DE PRUEBA
-driver.prueba = async({id, nombre, email, nickname, pass})=>{
-    return new Promise((resolve, reject)=>{
-        console.log("INFO FORMATEADA: "+id, nombre, email, nickname,pass);
-        //const data = {idCarrito, id_usuario, id_objeto};
-        return resolve({status:"success", data:data});
-    });
-}
-
 module.exports = driver;
