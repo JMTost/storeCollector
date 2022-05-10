@@ -51,7 +51,8 @@ router.post('/eliminaArt', async (req, res) => {
 });
 
 router.get('/obtenArt', async(req, res)=>{
-    res.status(200).send(await db.obtenArticulos());
+        result = await db.obtenArticulos(req);
+        res.send(result);
 });
 
 
@@ -88,7 +89,7 @@ router.get('/obtenCategorias', async (req, res)=>{
 //PRUEBA
 var archivo;
 const storage = multer.diskStorage({
-    destination:'uploads/',
+    destination:'public/image/',
     filename: function(req, file, cb){
         archivo = Date.now()+"."+mimeTypes.extension(file.mimetype);
         cb("", archivo);

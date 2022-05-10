@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="sinLog">  
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">Store Collector</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -34,28 +34,30 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./html/registro.html">Registrarse</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="conLog">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Store Collector</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a href="./html/creaArticulo.html" class="nav-link">Crear articulo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./lista.html">Lista de articulos</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
@@ -68,9 +70,19 @@
         <!--    <p>Parrafo</p>  -->
     </div>
     <main>
-        <div class="button">
-            <a class="boton" href="./html/loginUser.html">Entrar con correo electronico</a>
+        <div class="button" id="botonLogin">
+            <a class="boton" href="./html/loginUser.html">Inicio de sesión con correo electrónico</a>
         </div>
+        <div class="button" id="botonLista">
+            <a class="boton" href="./lista.html">Ver Articulos</a>
+        </div>
+        <id class="content-buttons" id="creaArticulo">
+            <section class="buttons">
+                <ul class="buttons-list">
+                    <li class="buttons-button"><a class="boton" href="./html/creaArticulo.html"> Crear articulos</a></li>
+                </ul>
+            </section>
+        </id>
         <!--
         <div class="buttons">
             <hr>
@@ -88,12 +100,11 @@
             </div>    
         </div>
     -->
-        <div class="content-buttons">
+        <div class="content-buttons" id="botonesSec">
             <section class="buttons">
                 <ul class="buttons-list">
-                    <li class="buttons-button"><a class="boton" href="index.html">Google</a></li>
                     <li class="buttons-button"><a class="boton" href="./html/registro.html">Registrarme</a></li>
-                    <li class="buttons-button"><a class="boton" href="./html/creaArticulo.html"> Crear articulos</a></li>
+                    <li class="buttons-button"><a class="boton" href="./lista.html">Ver Articulos</a></li>
                 </ul>
             </section>
         </div>
@@ -102,6 +113,30 @@
     <div class="content-condiciones">
         <p>By continuing you agree to the Terms and Conditions</p>
     </div>
+    <script>
+        var botonLogin = document.getElementById('botonLogin');
+        var botonLista = document.getElementById('botonLista');
+        var botonesSec = document.getElementById("botonesSec");
+        var botonCrea  = document.getElementById('creaArticulo');
+        var navConLog = document.getElementById("conLog");
+        var navSinLog = document.getElementById("sinLog");
+        if(sessionStorage.getItem('loggeado') == 1){
+            botonLogin.classList.add('invisible');
+            botonLista.classList.add('visible');
+            botonesSec.classList.add('invisible');
+            botonCrea.classList.add('visible');
+            navConLog.classList.add("visible");
+            navSinLog.classList.add("invisible")
+        }else{
+            botonLogin.classList.add('visible');
+            botonLista.classList.add('invisible');
+            botonesSec.classList.add('visible');
+            botonCrea.classList.add('invisible');
+            navConLog.classList.add("invisible");
+            navSinLog.classList.add("visible");
+        }
+
+    </script>
 </body>
 
 </html>

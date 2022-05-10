@@ -3,6 +3,12 @@ body{
     /*padding: 20px;*/
 }
 
+.visible{
+    display: block !important;
+}
+.invisible{
+    display: none !important;
+}
 .content-cabecera{
     width: 100%;
     /*margin-top: 80px;*/

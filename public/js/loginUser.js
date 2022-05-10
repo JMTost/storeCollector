@@ -1,6 +1,6 @@
 const form = document.getElementById("formLogin");
 form.addEventListener("submit", function(event){
-    console.log("HOLA")
+    //console.log("HOLA")
     event.preventDefault();
 
     let nickame = document.getElementById("nickname").value;
@@ -13,7 +13,7 @@ form.addEventListener("submit", function(event){
     envioBack(data);
 });
 function envioBack(data){
-    console.log(data);
+    //console.log(data);
     let i;
     fetch('http://localhost:3000/loginUser',{
         method: "POST",
@@ -31,7 +31,8 @@ function envioBack(data){
             let id = sessionStorage.getItem('id_usuario');
             console.log("valor de: "+id);
                                     //aqui ira la ruta del index usuario
-            window.location.href = "./creaArticulo.html";
+            window.location.href = "../index.html";
+            sessionStorage.setItem('loggeado',1);
         }else{
             alert("Error, datos no encontrados");
         }

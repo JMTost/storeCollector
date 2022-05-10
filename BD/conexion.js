@@ -3,6 +3,7 @@ var driver = {};
 
 const connection = mysql.createConnection({
     host: "localhost",
+    //port: 3336,
     user: "root",
     password: "max140700_",//cambio de contraseña
     database: "storecollector",
@@ -98,13 +99,22 @@ driver.eliminarArticulo = async({id_objeto})=>{
         });
     });
 }
-driver.obtenArticulos = async({})=>{
+driver.obtenArticulos = async({algo})=>{
     return new Promise((resolve, reject)=>{
-        connection.query("Select id_objeto, nombre_objeto, estado, precio from objeto", (err, result)=>{
+        connection.query("Select id_objeto, nombre_objeto, estado, precio, nombre_imagen, descripcion from objeto", (err, result)=>{
+            var resultado = [];
             for(let i = 0; i<result.length; i++){
-                console.log("id: "+result[i].id_objeto+" nombre: "+result[i].nombre_objeto);
-                resolve(result[i].id_objeto+":"+result[i].nombre_objeto+","+"estado: "+result[i].estado+","+"precio: "+result[i].precio);
+                var obj = {
+                    id: result[i].id_objeto,
+                    nombre: result[i].nombre_objeto,
+                    estado: result[i].estado,
+                    precio: result[i].precio,
+                    imagen: result[i].nombre_imagen,
+                    descripcion: result[i].descripcion
+                }
+                resultado.push(JSON.parse(JSON.stringify(obj)));
             }
+            return resolve(resultado);
         });
     });
 }

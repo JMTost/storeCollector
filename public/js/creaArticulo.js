@@ -1,6 +1,6 @@
 const form = document.getElementById("formArticulo");
 form.addEventListener("submit", function(event){
-    console.log("prueba");
+    //console.log("prueba");
     event.preventDefault();
 
     let nombre_objeto = document.getElementById("nombre_objeto").value;
@@ -27,11 +27,11 @@ form.addEventListener("submit", function(event){
     envioBack(data);
 });
 function envioBack(data){
-    console.log(data);
+    //console.log(data);
     fetch('http://localhost:3000/files', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     }).then(response=>response.json())                                               //index de la pagina del usuario
-    .then(console.log("OK"), alert("Articulo creado"), window.location.href="../index.html");
+    .then(alert("Articulo creado"), window.location.href="../index.html");
 }
